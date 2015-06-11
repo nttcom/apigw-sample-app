@@ -1,0 +1,7 @@
+<span>
+  <img class='type-icon' ng-show='iconVisible &amp;&amp; isNormal' src='images/icon_normal.png'>
+  <img class='type-icon' ng-show='iconVisible &amp;&amp; isError' src='images/icon_error.png'>
+  <img class='type-icon' ng-show='iconVisible &amp;&amp; isWarning' src='images/icon_warning.png'>
+  <img class='type-icon' ng-show='iconVisible &amp;&amp; isMuted' src='images/icon_muted.png'>
+  <span ng-bind='label' ng-hide='iconVisible'></span>
+</span>

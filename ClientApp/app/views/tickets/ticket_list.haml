@@ -1,0 +1,39 @@
+%div{:'ng-controller' => 'TicketListCtrl as ticketList'}
+
+  :ruby
+    total_items_filters = [
+      "status:'troubleStatus':status",
+      "forwardMatch:'contractId':ticketList.keyword"
+    ].join('|')
+    table_filters = [
+      total_items_filters,
+      'pagination:ticketList.page'
+    ].join('|')
+
+  .page-header
+    %h3{:'ng-bind' => 'ticketList.service.name'}
+
+  %div
+    %form
+      .form-group
+        %input.form-control{:'ng-model' => 'ticketList.keyword', :placeholder => '契約番号'}
+      .form-group
+        %select.form-control{:required => true, :'ng-init' => 'status = ticketList.service.troubleStatusOptions[0]', :'ng-model' => 'status', :'ng-options' => 'item as item.label for item in ticketList.service.troubleStatusOptions', :'ng-change' => 'ticketList.page = 1'}
+
+  %ncs-loading{:'data-available' => "(ticketList.tickets|#{total_items_filters}).length", :'data-loading' => 'ticketList.loading', :'data-message' => 'ticketList.message'}
+    %table.table.table-striped.table-list
+      %thead
+        %tr
+          %th 契約番号
+          %th サービス名
+          %th 状況
+      %tbody.rowlink{:'data-link' => 'row'}
+        %tr{:'ng-repeat' => "ticket in ticketList.tickets|#{table_filters}"}
+          %td
+            %a{:'ng-href' => '#/tickets/{{ ticketList.service.key }}/{{ ticket.troubleTicketId }}', :'ng-bind' => 'ticket.contractId'}
+          %td{:'ng-bind' => 'ticket.serviceName|truncate'}
+          %td
+            %ncs-type{:types => 'ticketList.service.troubleStatuses', :value => 'ticket.troubleStatus'}
+
+    .text-center
+      %pagination{:'ng-model' => 'ticketList.page', :'total-items' => "(ticketList.tickets|#{total_items_filters}).length", :'ng-change' => 'ticketList.pageChanged()'}

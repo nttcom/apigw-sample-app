@@ -1,0 +1,3 @@
+# copy this file to .foreman in development environment
+
+procfile: Procfile.development

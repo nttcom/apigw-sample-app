@@ -1,0 +1,38 @@
+# APIGWコンシューマーキー／シークレットキー設定例
+
+# コンシューマーキー／シークレットキーと、それを使用させるTwitter/Facebookユーザーを指定。
+# twitter_user_namesにはTwitterのユーザー名(@username)で指定
+# facebook_user_mail_addressesにはFacebookのメインメールアドレスで指定
+apigw_keys:
+  -
+    twitter_user_names: ['user1', 'user2']
+    facebook_user_mail_addresses: ['user1@example.com', 'user2@example.com']
+    consumer_key: '...'
+    secret_key: '...'
+  -
+    twitter_user_names: ['user3', 'user4']
+    facebook_user_mail_addresses: ['user3@example.com', 'user4@example.com']
+    consumer_key: '...'
+    secret_key: '...'
+
+# 上記に当てはまらない場合のデフォルトキー
+apigw_keys_default:
+  consumer_key: '...'
+  secret_key: '...'
+
+# アクセストークン暗号化キー (Base64)
+access_token_encryption_key: '...'
+
+webapp:
+  # JS側のURL。最後にスラッシュを書かないこと
+  url: 'http://127.0.0.1:9000'
+
+# Twitterアプリ認証情報
+twitter:
+  consumer_key: '...'
+  consumer_secret: '...'
+
+# Facebookアプリ認証情報
+facebook:
+  app_id: '...'
+  app_secret: '...'

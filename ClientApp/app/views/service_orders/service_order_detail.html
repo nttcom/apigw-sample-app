@@ -1,0 +1,44 @@
+<div ng-controller='ServiceOrderDetailCtrl as serviceOrderDetail'>
+  <div class='page-header'>
+    <h3 ng-bind='serviceOrderDetail.service.name'></h3>
+  </div>
+  <ncs-loading data-available='serviceOrderDetail.serviceOrder' data-loading='serviceOrderDetail.loading' data-message='serviceOrderDetail.message'>
+    <table class='table table-striped table-service-order-detail'>
+      <tbody>
+        <tr>
+          <th>申込受付番号</th>
+          <td ng-bind='serviceOrderDetail.serviceOrder.orderRequestNum'></td>
+        </tr>
+        <tr>
+          <th>契約番号</th>
+          <td ng-bind='serviceOrderDetail.serviceOrder.contractId'></td>
+        </tr>
+        <tr>
+          <th>サービス名</th>
+          <td ng-bind='serviceOrderDetail.serviceOrder.serviceName'></td>
+        </tr>
+        <tr>
+          <th>進捗状況</th>
+          <td>
+            <ncs-type types='serviceOrderDetail.service.orderStatuses' value='serviceOrderDetail.serviceOrder.orderStatus'></ncs-type>
+          </td>
+        </tr>
+        <tr>
+          <th>オーダタイプ</th>
+          <td>
+            <ncs-type types='serviceOrderDetail.service.orderTypes' value='serviceOrderDetail.serviceOrder.orderType'></ncs-type>
+          </td>
+        </tr>
+        <tr>
+          <th>提供予定日</th>
+          <td ng-bind='serviceOrderDetail.serviceOrder.offerPlanDate|ncsDate'></td>
+        </tr>
+        <tr>
+          <th>備考</th>
+          <td ng-bind='serviceOrderDetail.serviceOrder.distinguishName'></td>
+        </tr>
+      </tbody>
+    </table>
+  </ncs-loading>
+  <a class='btn btn-default' ng-href='#/service_orders/{{ serviceOrderDetail.service.key }}'>一覧に戻る</a>
+</div>

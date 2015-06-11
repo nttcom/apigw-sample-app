@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" href="images/icon.png">
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="nttcomApiGatewayWebappApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <ncs-root></ncs-root>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+    <!-- endbower -->
+    <script src="bower_components/crypto-js/rollups/aes.js"></script>
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
+        <script src="scripts/controllers/contracts/contract_detail.js"></script>
+        <script src="scripts/controllers/contracts/contract_group.js"></script>
+        <script src="scripts/controllers/contracts/contract_list.js"></script>
+        <script src="scripts/controllers/root.js"></script>
+        <script src="scripts/controllers/service_orders/service_order_detail.js"></script>
+        <script src="scripts/controllers/service_orders/service_order_list.js"></script>
+        <script src="scripts/controllers/tickets/ticket_detail.js"></script>
+        <script src="scripts/controllers/tickets/ticket_list.js"></script>
+        <script src="scripts/directives/ncs_loading.js"></script>
+        <script src="scripts/directives/ncs_root.js"></script>
+        <script src="scripts/directives/ncs_type.js"></script>
+        <script src="scripts/filters/forward_match.js"></script>
+        <script src="scripts/filters/ncs_date.js"></script>
+        <script src="scripts/filters/pagination.js"></script>
+        <script src="scripts/filters/service.js"></script>
+        <script src="scripts/filters/status.js"></script>
+        <script src="scripts/filters/truncate.js"></script>
+        <script src="scripts/filters/vpn_group.js"></script>
+        <script src="scripts/jasny-bootstrap/offcanvas.js"></script>
+        <script src="scripts/jasny-bootstrap/rowlink.js"></script>
+        <script src="scripts/services/api/api_client.js"></script>
+        <script src="scripts/services/api/api_settings.js"></script>
+        <script src="scripts/services/menu/menu_constant.js"></script>
+        <script src="scripts/services/menu/menu_factory.js"></script>
+        <script src="scripts/services/menu/menu_list.js"></script>
+        <script src="scripts/services/per_page.js"></script>
+        <script src="scripts/services/services/service_category_constant.js"></script>
+        <script src="scripts/services/services/service_category_factory.js"></script>
+        <script src="scripts/services/services/service_constant.js"></script>
+        <script src="scripts/services/services/service_factory.js"></script>
+        <script src="scripts/services/statuses/contract_region_constant.js"></script>
+        <script src="scripts/services/statuses/order_status_constant.js"></script>
+        <script src="scripts/services/statuses/order_type_constant.js"></script>
+        <script src="scripts/services/statuses/service_status_constant.js"></script>
+        <script src="scripts/services/statuses/trouble_status_constant.js"></script>
+        <script src="scripts/services/stores/contract_store.js"></script>
+        <script src="scripts/services/stores/service_order_store.js"></script>
+        <script src="scripts/services/stores/ticket_store.js"></script>
+        <script src="scripts/filters/service_sort_order.js"></script>
+        <script src="scripts/services/api/access_token_decrypter.js"></script>
+        <script src="scripts/services/api/access_token_decryption_key.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

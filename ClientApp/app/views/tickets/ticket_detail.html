@@ -1,0 +1,52 @@
+<div ng-controller='TicketDetailCtrl as ticketDetail'>
+  <div class='page-header'>
+    <h3 ng-bind='ticketDetail.service.name'></h3>
+  </div>
+  <ncs-loading data-available='ticketDetail.ticket' data-loading='ticketDetail.loading' data-message='ticketDetail.message'>
+    <table class='table table-striped table-ticket-detail'>
+      <tbody>
+        <tr>
+          <th>チケット番号</th>
+          <td ng-bind='ticketDetail.ticket.troubleTicketId'></td>
+        </tr>
+        <tr>
+          <th>契約番号</th>
+          <td ng-bind='ticketDetail.ticket.contractId'></td>
+        </tr>
+        <tr ng-hide='!ticketDetail.service.showCRef'>
+          <th>BHEC契約番号</th>
+          <td ng-bind='ticketDetail.ticket.cRef'></td>
+        </tr>
+        <tr>
+          <th>サービス名</th>
+          <td ng-bind='ticketDetail.ticket.serviceName'></td>
+        </tr>
+        <tr>
+          <th>対応状況</th>
+          <td>
+            <ncs-type types='ticketDetail.service.troubleStatuses' value='ticketDetail.ticket.troubleStatus'></ncs-type>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            チケット登録日
+            <br>(チケット開始日)</br>
+          </th>
+          <td ng-bind='ticketDetail.ticket.ticketStartDate|ncsDate'></td>
+        </tr>
+        <tr>
+          <th>
+            チケット完了日
+            <br>(チケット終了日)</br>
+          </th>
+          <td ng-bind='ticketDetail.ticket.ticketEndDate|ncsDate'></td>
+        </tr>
+        <tr>
+          <th>備考</th>
+          <td ng-bind='ticketDetail.ticket.distinguishName'></td>
+        </tr>
+      </tbody>
+    </table>
+  </ncs-loading>
+  <a class='btn btn-default' ng-href='#/tickets/{{ ticketDetail.service.key }}'>一覧に戻る</a>
+</div>

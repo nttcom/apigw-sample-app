@@ -1,0 +1,36 @@
+.root{:'ng-controller' => 'RootCtrl as root'}
+  -# 左メニュー
+  %nav#menu.navmenu.navmenu-menu.navmenu-fixed-left.offcanvas
+    %h1.navmenu-brand APIゲートウェイアプリ
+    %ul.nav.navmenu-nav
+      %li{:'ng-repeat' => 'menu in root.menuList', :'ng-class' => '{active: root.isMenuSelected(menu.key)}'}
+        %a{:'ng-click' => "root.menuClick('{{ menu.key }}')", :'ng-bind' => 'menu.name'}
+
+  -# 右メニュー
+  %nav#services.navmenu.navmenu-services.navmenu-fixed-right.offcanvas
+    %ul.nav.navmenu-nav{:'ng-repeat' => 'serviceCategory in root.serviceCategoryFactory'}
+      %li.navmenu-group-name.navmenu-brand{:'ng-bind' => 'serviceCategory.name'}
+      %li.navmenu-group-item{:'ng-repeat' => 'service in serviceCategory.services', :'ng-class' => '{active: root.isServiceSelected(service.key), disabled: root.isServiceDisabled(service.key)}'}
+        %a{:'ng-click' => "root.serviceClick('{{ service.key }}')", :'ng-bind' => 'service.name'}
+
+  #canvas
+    -# ヘッダー
+    .navbar.navbar-default.navbar-fixed-top
+      -# 左メニューボタン
+      %button.navbar-toggle.navbar-toggle-menu{:'type' => 'button', :'data-toggle' => 'offcanvas', :'data-target' => '#menu', :'data-canvas' => '#canvas', :'data-recalc' => false}
+        %img{:src => 'images/icon.png', :height => 32, :width => 32}
+
+      -# 右メニューボタン
+      %button.navbar-toggle.navbar-toggle-services{:'type' => 'button', :'data-toggle' => 'offcanvas', :'data-target' => '#services', :'data-canvas' => '#canvas', :'data-recalc' => false}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      -# ページタイトル
+      %h2.navbar-text.navbar-title{:'ng-bind' => 'root.menu.name'}
+
+    .container.main-content
+      %div{:'ng-view' => ''}
+
+    .container.footer
+      %span.footer-text{:'ng-bind-html' => 'root.copyright()'}

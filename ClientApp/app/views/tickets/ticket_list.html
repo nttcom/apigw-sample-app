@@ -1,0 +1,40 @@
+<div ng-controller='TicketListCtrl as ticketList'>
+  <div class='page-header'>
+    <h3 ng-bind='ticketList.service.name'></h3>
+  </div>
+  <div>
+    <form>
+      <div class='form-group'>
+        <input class='form-control' ng-model='ticketList.keyword' placeholder='契約番号'>
+      </div>
+      <div class='form-group'>
+        <select class='form-control' ng-change='ticketList.page = 1' ng-init='status = ticketList.service.troubleStatusOptions[0]' ng-model='status' ng-options='item as item.label for item in ticketList.service.troubleStatusOptions' required></select>
+      </div>
+    </form>
+  </div>
+  <ncs-loading data-available="(ticketList.tickets|status:'troubleStatus':status|forwardMatch:'contractId':ticketList.keyword).length" data-loading='ticketList.loading' data-message='ticketList.message'>
+    <table class='table table-striped table-list'>
+      <thead>
+        <tr>
+          <th>契約番号</th>
+          <th>サービス名</th>
+          <th>状況</th>
+        </tr>
+      </thead>
+      <tbody class='rowlink' data-link='row'>
+        <tr ng-repeat="ticket in ticketList.tickets|status:'troubleStatus':status|forwardMatch:'contractId':ticketList.keyword|pagination:ticketList.page">
+          <td>
+            <a ng-bind='ticket.contractId' ng-href='#/tickets/{{ ticketList.service.key }}/{{ ticket.troubleTicketId }}'></a>
+          </td>
+          <td ng-bind='ticket.serviceName|truncate'></td>
+          <td>
+            <ncs-type types='ticketList.service.troubleStatuses' value='ticket.troubleStatus'></ncs-type>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class='text-center'>
+      <pagination ng-change='ticketList.pageChanged()' ng-model='ticketList.page' total-items="(ticketList.tickets|status:'troubleStatus':status|forwardMatch:'contractId':ticketList.keyword).length"></pagination>
+    </div>
+  </ncs-loading>
+</div>

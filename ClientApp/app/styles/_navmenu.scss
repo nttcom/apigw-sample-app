@@ -1,0 +1,205 @@
+$navmenu-custom-width:                     240px !default;
+
+.navmenu {
+  width: $navmenu-custom-width;
+  z-index: 1;
+}
+
+.nav {
+  > li.navmenu-group-name {
+    padding: 10px 15px;
+    font-weight: bold;
+  }
+  > li.navmenu-group-item > a {
+    padding-left: 30px;
+  }
+}
+
+//== navmenu-menu
+
+$navmenu-menu-color:                #ddd !default;
+$navmenu-menu-bg:                   #004386 !default;
+$navmenu-menu-border:               darken($navmenu-menu-bg, 10%) !default;
+
+$navmenu-menu-link-color:           #ddd !default;
+$navmenu-menu-link-hover-color:     #fff !default;
+$navmenu-menu-link-hover-bg:        transparent !default;
+$navmenu-menu-link-active-color:    $navmenu-menu-link-hover-color !default;
+$navmenu-menu-link-active-bg:       lighten($navmenu-menu-bg, 15%) !default;
+$navmenu-menu-link-disabled-color:  darken($navmenu-menu-link-color, 40%) !default;
+$navmenu-menu-link-disabled-bg:     transparent !default;
+
+$navmenu-menu-brand-color:          #fff !default;
+
+.navmenu-menu {
+  background-color: $navmenu-menu-bg;
+  border-color: $navmenu-menu-border;
+
+  .navmenu-brand {
+    color: $navmenu-menu-brand-color;
+  }
+
+  .navmenu-text {
+    color: $navmenu-menu-color;
+  }
+
+  .navmenu-nav {
+    // Caret should match text color on hover
+    > .dropdown > a:hover .caret,
+    > .dropdown > a:focus .caret {
+      border-top-color: $navmenu-menu-link-hover-color;
+      border-bottom-color: $navmenu-menu-link-hover-color;
+    }
+
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navmenu-menu-link-active-bg;
+        color: $navmenu-menu-link-active-color;
+        .caret {
+          border-top-color: $navmenu-menu-link-active-color;
+          border-bottom-color: $navmenu-menu-link-active-color;
+        }
+      }
+    }
+    > .dropdown > a .caret {
+      border-top-color: $navmenu-menu-link-color;
+      border-bottom-color: $navmenu-menu-link-color;
+    }
+    &.dropdown-menu {
+      background-color: $navmenu-menu-link-active-bg;
+      & > .divider {
+        background-color: $navmenu-menu-bg;
+      }
+      > .active > a {
+        &,
+        &:hover,
+        &:focus {
+          background-color: darken($navmenu-menu-link-active-bg, 6.5%);
+        }
+      }
+    }
+
+    > li > a {
+      color: $navmenu-menu-link-color;
+      &:hover,
+      &:focus {
+        color: $navmenu-menu-link-hover-color;
+        background-color: $navmenu-menu-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navmenu-menu-link-active-color;
+        background-color: $navmenu-menu-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navmenu-menu-link-disabled-color;
+        background-color: $navmenu-menu-link-disabled-bg;
+      }
+    }
+  }
+}
+
+//== navmenu-services
+
+$navmenu-services-color:                $navmenu-menu-color !default;
+$navmenu-services-bg:                   $navmenu-menu-bg !default;
+$navmenu-services-border:               $navmenu-menu-border !default;
+
+$navmenu-services-link-color:           $navmenu-menu-link-color !default;
+$navmenu-services-link-hover-color:     $navmenu-menu-link-hover-color !default;
+$navmenu-services-link-hover-bg:        $navmenu-menu-link-hover-bg !default;
+$navmenu-services-link-active-color:    $navmenu-menu-link-active-color !default;
+$navmenu-services-link-active-bg:       $navmenu-menu-link-active-bg !default;
+$navmenu-services-link-disabled-color:  $navmenu-menu-link-disabled-color !default;
+$navmenu-services-link-disabled-bg:     $navmenu-menu-link-disabled-bg !default;
+
+$navmenu-services-brand-color:          $navmenu-menu-brand-color !default;
+
+.navmenu-services {
+  background-color: $navmenu-services-bg;
+  border-color: $navmenu-services-border;
+
+  .navmenu-brand {
+    color: $navmenu-services-brand-color;
+    font-weight: bold;
+  }
+
+  .navmenu-text {
+    color: $navmenu-services-color;
+  }
+
+  .navmenu-nav {
+    // Caret should match text color on hover
+    > .dropdown > a:hover .caret,
+    > .dropdown > a:focus .caret {
+      border-top-color: $navmenu-services-link-hover-color;
+      border-bottom-color: $navmenu-services-link-hover-color;
+    }
+
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navmenu-services-link-active-bg;
+        color: $navmenu-services-link-active-color;
+        .caret {
+          border-top-color: $navmenu-services-link-active-color;
+          border-bottom-color: $navmenu-services-link-active-color;
+        }
+      }
+    }
+    > .dropdown > a .caret {
+      border-top-color: $navmenu-services-link-color;
+      border-bottom-color: $navmenu-services-link-color;
+    }
+    &.dropdown-menu {
+      background-color: $navmenu-services-link-active-bg;
+      & > .divider {
+        background-color: $navmenu-services-bg;
+      }
+      > .active > a {
+        &,
+        &:hover,
+        &:focus {
+          background-color: darken($navmenu-services-link-active-bg, 6.5%);
+        }
+      }
+    }
+
+    > li > a {
+      color: $navmenu-services-link-color;
+      &:hover,
+      &:focus {
+        color: $navmenu-services-link-hover-color;
+        background-color: $navmenu-services-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navmenu-services-link-active-color;
+        background-color: $navmenu-services-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navmenu-services-link-disabled-color;
+        background-color: $navmenu-services-link-disabled-bg;
+      }
+    }
+  }
+}

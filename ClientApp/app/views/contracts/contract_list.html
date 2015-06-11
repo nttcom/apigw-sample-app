@@ -1,0 +1,40 @@
+<div ng-controller='ContractListCtrl as contractList'>
+  <div class='page-header'>
+    <h3 ng-bind='contractList.service.name'></h3>
+  </div>
+  <div>
+    <form>
+      <div class='form-group'>
+        <input class='form-control' ng-model='contractList.keyword' placeholder='契約番号'>
+      </div>
+      <div class='form-group'>
+        <select class='form-control' ng-change='contractList.page = 1' ng-init='status = contractList.service.serviceStatusOptions[0]' ng-model='status' ng-options='item as item.label for item in contractList.service.serviceStatusOptions' required></select>
+      </div>
+    </form>
+    <ncs-loading data-available="(contractList.contracts|status:'serviceStatus':status|forwardMatch:'contractId':contractList.keyword).length" data-loading='contractList.loading' data-message='contractList.message'>
+      <table class='table table-striped table-list'>
+        <thead>
+          <tr>
+            <th>契約番号</th>
+            <th>サービス名</th>
+            <th>状況</th>
+          </tr>
+        </thead>
+        <tbody class='rowlink' data-link='row'>
+          <tr ng-repeat="contract in contractList.contracts|status:'serviceStatus':status|forwardMatch:'contractId':contractList.keyword|pagination:contractList.page">
+            <td>
+              <a ng-bind='contract.contractId' ng-href='#/contracts/{{ contractList.service.key }}/{{ contract.contractId }}'></a>
+            </td>
+            <td ng-bind='contract.serviceName|truncate'></td>
+            <td class='type-icon-cell'>
+              <ncs-type types='contractList.service.serviceStatuses' value='contract.serviceStatus'></ncs-type>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class='text-center'>
+        <pagination ng-change='contractList.pageChanged()' ng-model='contractList.page' total-items="(contractList.contracts|status:'serviceStatus':status|forwardMatch:'contractId':contractList.keyword).length"></pagination>
+      </div>
+    </ncs-loading>
+  </div>
+</div>

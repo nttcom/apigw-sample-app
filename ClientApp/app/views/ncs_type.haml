@@ -1,0 +1,6 @@
+%span
+  %img{:src => 'images/icon_normal.png', :'ng-show' => 'iconVisible && isNormal', :class => 'type-icon'}
+  %img{:src => 'images/icon_error.png', :'ng-show' => 'iconVisible && isError', :class => 'type-icon'}
+  %img{:src => 'images/icon_warning.png', :'ng-show' => 'iconVisible && isWarning', :class => 'type-icon'}
+  %img{:src => 'images/icon_muted.png', :'ng-show' => 'iconVisible && isMuted', :class => 'type-icon'}
+  %span{:'ng-bind' => 'label', :'ng-hide' => 'iconVisible'}

@@ -1,0 +1,35 @@
+{
+  "name": "nttcom-api-gateway-webapp",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "bootstrap-sass-official": "^3.2.0",
+    "angular-animate": "^1.3.0",
+    "angular-aria": "^1.3.0",
+    "angular-cookies": "^1.3.0",
+    "angular-messages": "^1.3.0",
+    "angular-resource": "^1.3.0",
+    "angular-route": "^1.3.0",
+    "angular-sanitize": "^1.3.0",
+    "angular-touch": "^1.3.0",
+    "ngstorage": "~0.3.0",
+    "angular-bootstrap": "~0.12.1",
+    "angular-spinner": "~0.6.1",
+    "crypto-js": "http://crypto-js.googlecode.com/files/CryptoJS%20v3.1.2.zip"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.3.0"
+  },
+  "appPath": "app",
+  "overrides": {
+    "jasny-bootstrap": {
+      "main": [
+        "./scss/jasny-bootstrap.scss",
+        "./dist/js/jasny-bootstrap.js"
+      ],
+      "dependencies": {
+        "jquery": ">= 1.9.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+%div
+  %div{:'ng-hide' => 'indicatorVisible || alertVisible'}
+    %div{:'ng-hide' => 'noDataVisible', :'ng-transclude' => true}
+    .alert.alert-info{:'ng-show' => 'noDataVisible'} 対象データなし
+  %span{:'ng-show' => 'indicatorVisible', :'us-spinner' => '{}'}
+  .alert.alert-danger{:'ng-show' => 'alertVisible', :'ng-bind' => 'message'}

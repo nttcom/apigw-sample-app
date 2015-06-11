@@ -1,0 +1,51 @@
+%div{:'ng-controller' => "ContractDetailCtrl as contractDetail"}
+
+  .page-header
+    %h3{:'ng-bind' => 'contractDetail.service.name'}
+
+
+  %ncs-loading{:'data-available' => "contractDetail.contract", :'data-loading' => 'contractDetail.loading', :'data-message' => 'contractDetail.message'}
+    %table.table.table-striped.table-contract-detail
+      %tbody
+        %tr
+          %th 契約番号
+          %td{:'ng-bind' => 'contractDetail.contract.contractId'}
+        %tr{:'ng-hide' => '!contractDetail.service.showCRef'}
+          %th BHEC契約番号
+          %td{:'ng-bind' => 'contractDetail.contract.cRef'}
+        %tr
+          %th サービス名
+          %td{:'ng-bind' => 'contractDetail.contract.serviceName'}
+        %tr
+          %th 故障状況
+          %td
+            %ncs-type{:types => 'contractDetail.service.serviceStatuses', :value => 'contractDetail.contract.serviceStatus'}
+            .pull-right
+              :ruby
+                ticket_list_href = [
+                  '#/tickets',
+                  '{{ contractDetail.service.key }}'
+                ].join('/') + '?contract_id={{ contractDetail.contract.contractId }}'
+
+              %a.btn.btn-danger.btn-sm{:'ng-href' => ticket_list_href} チケット情報
+        %tr{:'ng-hide' => '!contractDetail.service.showVpnGroupId'}
+          %th
+            vpn
+            %br グループ番号
+          %td
+            :ruby
+              contract_group_href = [
+                '#/contracts',
+                '{{ contractDetail.service.key }}',
+                '{{ contractDetail.contract.contractId }}',
+                '{{ contractDetail.contract.vpnGroupId }}'
+              ].join('/')
+            %a.btn.btn-default{:'ng-href' => contract_group_href, :'ng-bind' => 'contractDetail.contract.vpnGroupId'}
+        %tr
+          %th 提供拠点
+          %td{:'ng-bind' => 'contractDetail.contract.site'}
+        %tr
+          %th 備考
+          %td{:'ng-bind' => 'contractDetail.contract.distinguishName'}
+
+  %a.btn.btn-default{:'ng-href' => '#/contracts/{{ contractDetail.service.key }}'} 一覧に戻る

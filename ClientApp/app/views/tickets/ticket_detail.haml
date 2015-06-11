@@ -1,0 +1,39 @@
+%div{:'ng-controller' => 'TicketDetailCtrl as ticketDetail'}
+
+  .page-header
+    %h3{:'ng-bind' => 'ticketDetail.service.name'}
+
+  %ncs-loading{:'data-available' => 'ticketDetail.ticket', :'data-loading' => 'ticketDetail.loading', :'data-message' => 'ticketDetail.message'}
+    %table.table.table-striped.table-ticket-detail
+      %tbody
+        %tr
+          %th チケット番号
+          %td{:'ng-bind' => 'ticketDetail.ticket.troubleTicketId'}
+        %tr
+          %th 契約番号
+          %td{:'ng-bind' => 'ticketDetail.ticket.contractId'}
+        %tr{:'ng-hide' => '!ticketDetail.service.showCRef'}
+          %th BHEC契約番号
+          %td{:'ng-bind' => 'ticketDetail.ticket.cRef'}
+        %tr
+          %th サービス名
+          %td{:'ng-bind' => 'ticketDetail.ticket.serviceName'}
+        %tr
+          %th 対応状況
+          %td
+            %ncs-type{:types => 'ticketDetail.service.troubleStatuses', :value => 'ticketDetail.ticket.troubleStatus'}
+        %tr
+          %th
+            チケット登録日
+            %br (チケット開始日)
+          %td{:'ng-bind' => 'ticketDetail.ticket.ticketStartDate|ncsDate'}
+        %tr
+          %th
+            チケット完了日
+            %br (チケット終了日)
+          %td{:'ng-bind' => 'ticketDetail.ticket.ticketEndDate|ncsDate'}
+        %tr
+          %th 備考
+          %td{:'ng-bind' => 'ticketDetail.ticket.distinguishName'}
+
+  %a.btn.btn-default{:'ng-href' => '#/tickets/{{ ticketDetail.service.key }}'} 一覧に戻る

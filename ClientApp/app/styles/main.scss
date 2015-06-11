@@ -1,0 +1,134 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+// jasny-bootstrap scss sources
+@import "jasny-bootstrap/variables";
+@import "jasny-bootstrap/navmenu";
+@import "jasny-bootstrap/offcanvas";
+@import "jasny-bootstrap/rowlink";
+
+// customized jasny-bootstrap navmenu
+@import "navmenu";
+
+html, body, .root {
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+#canvas {
+  position: relative;
+  z-index: 2;
+  min-height: 100%;
+  padding: 50px 0 0 0;
+  background: #fff;
+  border-radius: 1px;
+  box-shadow: rgba(0,0,0,0.4) 0px 0px 5px 5px;
+}
+
+$footer-height: 50px;
+
+.main-content {
+  padding-bottom: $footer-height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  padding-top: 20px;
+  text-align: center;
+
+  > .footer-text {
+  }
+}
+
+.navbar-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.navbar-toggle-menu {
+  display: block;
+  margin-left: 15px;
+  margin-right: 5px;
+  padding: 0px 5px;
+  float: left;
+}
+
+.navbar-toggle-services {
+  display: block;
+  margin-left: 5px;
+  margin-right: 15px;
+  float: right;
+}
+
+.page-header {
+  margin-top: 0;
+}
+
+$table-custom-border-color: #b1b1b1;
+
+@mixin table-custom-bordered {
+  border: 1px solid $table-custom-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th {
+        color: #fff;
+        background: #4875A1;
+      }
+      > th,
+      > td {
+        border: 1px solid $table-custom-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.table-list {
+  @include table-custom-bordered;
+}
+
+.table-contract-detail {
+  @include table-custom-bordered;
+  > tbody > tr > th {
+    width: 110px;
+  }
+}
+
+.table-service-order-detail {
+  @include table-custom-bordered;
+  > tbody > tr > th {
+    width: 110px;
+  }
+}
+
+.table-ticket-detail {
+  @include table-custom-bordered;
+  > tbody > tr > th {
+    width: 130px;
+  }
+}
+
+td.type-icon-cell {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.type-icon {
+  width: 15px;
+  height: 15px;
+}

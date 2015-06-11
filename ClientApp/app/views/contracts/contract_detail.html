@@ -1,0 +1,50 @@
+<div ng-controller='ContractDetailCtrl as contractDetail'>
+  <div class='page-header'>
+    <h3 ng-bind='contractDetail.service.name'></h3>
+  </div>
+  <ncs-loading data-available='contractDetail.contract' data-loading='contractDetail.loading' data-message='contractDetail.message'>
+    <table class='table table-striped table-contract-detail'>
+      <tbody>
+        <tr>
+          <th>契約番号</th>
+          <td ng-bind='contractDetail.contract.contractId'></td>
+        </tr>
+        <tr ng-hide='!contractDetail.service.showCRef'>
+          <th>BHEC契約番号</th>
+          <td ng-bind='contractDetail.contract.cRef'></td>
+        </tr>
+        <tr>
+          <th>サービス名</th>
+          <td ng-bind='contractDetail.contract.serviceName'></td>
+        </tr>
+        <tr>
+          <th>故障状況</th>
+          <td>
+            <ncs-type types='contractDetail.service.serviceStatuses' value='contractDetail.contract.serviceStatus'></ncs-type>
+            <div class='pull-right'>
+              <a class='btn btn-danger btn-sm' ng-href='#/tickets/{{ contractDetail.service.key }}?contract_id={{ contractDetail.contract.contractId }}'>チケット情報</a>
+            </div>
+          </td>
+        </tr>
+        <tr ng-hide='!contractDetail.service.showVpnGroupId'>
+          <th>
+            vpn
+            <br>グループ番号</br>
+          </th>
+          <td>
+            <a class='btn btn-default' ng-bind='contractDetail.contract.vpnGroupId' ng-href='#/contracts/{{ contractDetail.service.key }}/{{ contractDetail.contract.contractId }}/{{ contractDetail.contract.vpnGroupId }}'></a>
+          </td>
+        </tr>
+        <tr>
+          <th>提供拠点</th>
+          <td ng-bind='contractDetail.contract.site'></td>
+        </tr>
+        <tr>
+          <th>備考</th>
+          <td ng-bind='contractDetail.contract.distinguishName'></td>
+        </tr>
+      </tbody>
+    </table>
+  </ncs-loading>
+  <a class='btn btn-default' ng-href='#/contracts/{{ contractDetail.service.key }}'>一覧に戻る</a>
+</div>

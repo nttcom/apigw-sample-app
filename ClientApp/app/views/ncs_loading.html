@@ -1,0 +1,8 @@
+<div>
+  <div ng-hide='indicatorVisible || alertVisible'>
+    <div ng-hide='noDataVisible' ng-transclude></div>
+    <div class='alert alert-info' ng-show='noDataVisible'>対象データなし</div>
+  </div>
+  <span ng-show='indicatorVisible' us-spinner='{}'></span>
+  <div class='alert alert-danger' ng-bind='message' ng-show='alertVisible'></div>
+</div>

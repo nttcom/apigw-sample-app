@@ -1,0 +1,33 @@
+%div{:'ng-controller' => 'ServiceOrderDetailCtrl as serviceOrderDetail'}
+
+  .page-header
+    %h3{:'ng-bind' => 'serviceOrderDetail.service.name'}
+
+  %ncs-loading{:'data-available' => 'serviceOrderDetail.serviceOrder', :'data-loading' => 'serviceOrderDetail.loading', :'data-message' => 'serviceOrderDetail.message'}
+    %table.table.table-striped.table-service-order-detail
+      %tbody
+        %tr
+          %th 申込受付番号
+          %td{:'ng-bind' => 'serviceOrderDetail.serviceOrder.orderRequestNum'}
+        %tr
+          %th 契約番号
+          %td{:'ng-bind' => 'serviceOrderDetail.serviceOrder.contractId'}
+        %tr
+          %th サービス名
+          %td{:'ng-bind' => 'serviceOrderDetail.serviceOrder.serviceName'}
+        %tr
+          %th 進捗状況
+          %td
+            %ncs-type{:types => 'serviceOrderDetail.service.orderStatuses', :value => 'serviceOrderDetail.serviceOrder.orderStatus'}
+        %tr
+          %th オーダタイプ
+          %td
+            %ncs-type{:types => 'serviceOrderDetail.service.orderTypes', :value => 'serviceOrderDetail.serviceOrder.orderType'}
+        %tr
+          %th 提供予定日
+          %td{:'ng-bind' => 'serviceOrderDetail.serviceOrder.offerPlanDate|ncsDate'}
+        %tr
+          %th 備考
+          %td{:'ng-bind' => 'serviceOrderDetail.serviceOrder.distinguishName'}
+
+  %a.btn.btn-default{:'ng-href' => '#/service_orders/{{ serviceOrderDetail.service.key }}'} 一覧に戻る

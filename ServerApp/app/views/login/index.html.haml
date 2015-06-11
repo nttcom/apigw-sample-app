@@ -1,0 +1,14 @@
+- provide :title, "ログイン"
+
+.container.login-main-content
+  .page-header
+    %h1.login-page-title
+      NTTコミュニケーションズ<br/>APIゲートウェイ<br/>デモアプリ
+  %div
+    %p.text-center
+      = link_to image_tag('twitter_login.png', class: 'login-button'), auth_path(:twitter)
+    %p.text-center
+      = link_to image_tag('facebook_login.png', class: 'login-button'), auth_path(:facebook)
+.login-footer
+  %p.text-center
+    = "Copyright &copy; #{DateTime.now.year} NTT Communications".html_safe

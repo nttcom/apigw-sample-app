@@ -1,0 +1,5 @@
+webapp:
+  path: '/#/auth'
+apigw:
+  host: 'https://api.ntt.com'
+  path: '/v1/oauth/accesstokens'
