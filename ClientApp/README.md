@@ -71,7 +71,7 @@ Sample app[ClientApp] for Business Process API
   * [angularJS](https://angularjs.org/)
 
 ## Docs & Info
-  * [Sample App Guideline](https://github.com/nttcom/apigw-sample-app/demo_app_manual_ja.pdf)
+  * [Sample App Guideline](https://github.com/nttcom/apigw-sample-app/blob/master/demo_app_manual_ja.pdf)
   * [NTT Com Developer Portal](https://developer.ntt.com/)
   * [NTT Communiations API Gateway Video](https://www.youtube.com/watch?v=jaRyr8TqFH4)  
 

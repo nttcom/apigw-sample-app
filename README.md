@@ -3,13 +3,13 @@ Sample app for Business Process API
   Business Process API spec is [here](https://developer.ntt.com/ja/apidocs/CPTF/business-process/business-process).
 
 ## Quick Installation
-1.You check README.md and [Sample App Guideline](https://github.com/nttcom/apigw-sample-app/demo_app_manual_ja.pdf)  
+1.You check README.md and [Sample App Guideline](https://github.com/nttcom/apigw-sample-app/blob/master/demo_app_manual_ja.pdf)  
 2.Install Sample app[ClientApp]  
 3.Install Sample app[AuthServer]  
 4.Go to Sample app Auth URL!!  
 
 ## インストール方法
-1. 本README、個別README、[Sample App Guideline](https://github.com/nttcom/apigw-sample-app/demo_app_manual_ja.pdf) を参照ください。
+1. 本README、個別README、[Sample App Guideline](https://github.com/nttcom/apigw-sample-app/blob/master/demo_app_manual_ja.pdf) を参照ください。
 2. Sample app[ClientApp] を設定 && インストール
 3. Sample app[AuthServer] を設定 && インストール
 4. Sample app 認証サーバのURLにブラウザで接続
@@ -22,7 +22,7 @@ Sample app for Business Process API
   * [angularJS](https://angularjs.org/)
 
 ## Docs & Info
-  * [Sample App Guideline](https://github.com/nttcom/apigw-sample-app/demo_app_manual_ja.pdf)
+  * [Sample App Guideline](https://github.com/nttcom/apigw-sample-app/blob/master/demo_app_manual_ja.pdf)
   * [NTT Com Developer Portal](https://developer.ntt.com/)
   * [NTT Communiations API Gateway Video](https://www.youtube.com/watch?v=jaRyr8TqFH4)
 
