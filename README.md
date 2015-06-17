@@ -38,3 +38,6 @@ Sample app for Business Process API
   [Apache License, Version 2.0][Apache]
 
 [Apache]: http://www.apache.org/licenses/LICENSE-2.0  
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nttcom/apigw-sample-app/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
